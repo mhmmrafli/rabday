@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wish You All the Best on Your Birthday!">
+    <title>🎉 Happy Birthday - Selamat Ulang Tahun 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Balloons -->
+    <div class="balloon" style="left: 10%;">🎈</div>
+    <div class="balloon" style="left: 20%; animation-delay: 0.5s;">🎈</div>
+    <div class="balloon" style="left: 30%; animation-delay: 1s;">🎊</div>
+    <div class="balloon" style="left: 40%; animation-delay: 1.5s;">🎈</div>
+    <div class="balloon" style="left: 50%; animation-delay: 2s;">⭐</div>
+    <div class="balloon" style="left: 60%; animation-delay: 2.5s;">🎈</div>
+    <div class="balloon" style="left: 70%; animation-delay: 1.2s;">🎉</div>
+    <div class="balloon" style="left: 80%; animation-delay: 1.8s;">🎈</div>
+    <div class="balloon" style="left: 90%; animation-delay: 0.8s;">✨</div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container">
+        <div class="confetti confetti-1"></div>
+        <div class="confetti confetti-2"></div>
+        <div class="confetti confetti-3"></div>
+        <div class="confetti confetti-4"></div>
+        <div class="confetti confetti-5"></div>
+        <div class="confetti confetti-1"></div>
+        <div class="confetti confetti-2"></div>
+        <div class="confetti confetti-3"></div>
+        <div class="confetti confetti-4"></div>
+        <div class="confetti confetti-5"></div>
+        <div class="confetti confetti-1"></div>
+        <div class="confetti confetti-2"></div>
+        <div class="confetti confetti-3"></div>
+        <div class="confetti confetti-4"></div>
+        <div class="confetti confetti-5"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </header>
+
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1 class="title animate-title">🎉HAPPY BIRTHDAY!🎉</h1>
+                <div class="subtitle-line"></div>
+                <p class="subtitle">Happy Birthday!</p>
+                <p class="age-display" id="ageDisplay">Selamat menua!</p>
+            </section>
+
+            <!-- Message Section -->
+            <section class="message">
+                <div class="message-card">
+                    <p class="message-text">
+                        Wishing you a day filled with love, joy, and all your favorite things.
+                        May this year bring you happiness, success, and wonderful memories.
+                        Always be kind, stay positive, and keep shining bright!
+                        <br>
+                        Happy Birthday once again!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Picture Gallery Section -->
+            <section class="picture-section">
+                <h2 class="section-title">📸 Your Special Moments 📸</h2>
+                <div class="picture-gallery" id="pictureGallery">
+                    <div class="picture-card">
+                        <div class="picture-frame">
+                            <img src="aset/foto1.jpg" alt="Momen Spesial 1" class="gallery-image">
+                        </div>
+                        <h3>Enjoy your special day!</h3>
+                        <p>Make every moment count with loved ones</p>
+                    </div>
+                    <div class="picture-card">
+                        <div class="picture-frame">
+                            <img src="aset/foto2.jpg" alt="Momen Spesial 2" class="gallery-image">
+                        </div>
+                        <h3>Have a wonderful birthday!</h3>
+                        <p>Celebrate your amazing journey</p>
+                    </div>
+                    <div class="picture-card">
+                        <div class="picture-frame">
+                            <img src="aset/foto3.jpg" alt="Momen Spesial 3" class="gallery-image">
+                        </div>
+                        <h3>Many happy returns!</h3>
+                        <p>Looking forward to more great times</p>
+                    </div>
+
+                    <div class="picture-card">
+                        <div class="picture-frame">
+                            <img src="aset/foto4.jpeg" alt="Momen Spesial 4" class="gallery-image">
+                        </div>
+                        <h3>May your day always be cheerful!</h3>
+                        <p>Always have positive energy!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Music Control Section -->
+            <section class="music-control">
+                <button class="music-button" onclick="toggleBackgroundMusic()">
+                    <span class="music-icon" id="musicIcon">🔇</span>
+                </button>
+                <div class="music-status" id="audioStatus">🎵 Music Playing...</div>
+            </section>
+
+            <audio id="backgroundMusic" preload="auto" loop autoplay>
+                <source src="audio/audio.mp3" type="audio/mpeg">
+                <source src="audio/audio.ogg" type="audio/ogg">
+            </audio>
+
+            <button class="back-button" onclick="window.location.href='index.html'">← Back</button>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Birthday Rara.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Celebrate with effects
+        function celebrate() {
+            triggerConfetti();
+            createFloatingHearts();
+        }
+
+        function triggerConfetti() {
+            const confettiPieces = document.querySelectorAll('.confetti');
+            confettiPieces.forEach(piece => {
+                piece.style.animation = 'none';
+                setTimeout(() => {
+                    piece.style.animation = 'confettiFall 3s ease-in forwards';
+                }, 10);
+            });
+        }
+
+        function createFloatingHearts() {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+                heart.style.animation = 'float-up 3s ease-in forwards';
+                heart.style.zIndex = '999';
+                heart.style.pointerEvents = 'none';
+                heart.style.filter = 'drop-shadow(0 0 5px rgba(255, 107, 97, 0.6))';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        // Background Music Control
+        let isMusicPlaying = true;
+
+        function toggleBackgroundMusic() {
+            const audio = document.getElementById('backgroundMusic');
+            const icon = document.getElementById('musicIcon');
+            const status = document.getElementById('audioStatus');
+            
+            if (isMusicPlaying) {
+                audio.pause();
+                isMusicPlaying = false;
+                icon.textContent = '🔊';
+                status.textContent = '⏸ Music Paused';
+            } else {
+                audio.play().catch(err => {
+                    console.log('Play error:', err);
+                });
+                isMusicPlaying = true;
+                icon.textContent = '🔇';
+                status.textContent = '🎵 Music Playing...';
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('backgroundMusic');
+            const icon = document.getElementById('musicIcon');
+            const status = document.getElementById('audioStatus');
+            
+            audio.play().catch(err => {
+                console.log('Autoplay blocked:', err);
+                status.textContent = '⏸ Click button to play music';
+                isMusicPlaying = false;
+            });
+        });
+
+        // Update age display
+        document.addEventListener('DOMContentLoaded', () => {
+            const birthday = new Date(new Date().getFullYear(), 1, 10); // February 10
+            const ageDisplay = document.getElementById('ageDisplay');
+            if (ageDisplay) {
+            ageDisplay.textContent = '🎂 ' + birthday.toLocaleDateString('id-ID', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            }
+        });
+    </script>
+</body>
+</html>
